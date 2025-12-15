@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cotizador | Tampat Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background:#0f172a;
+      color:#e5e7eb;
+      font-family: Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+    }
+    .card {
+      background:#020617;
+      padding:20px;
+      border-radius:10px;
+      width:100%;
+      max-width:420px;
+    }
+    h1 {
+      font-size:20px;
+      margin-bottom:10px;
+    }
+    label {
+      display:block;
+      margin-top:15px;
+    }
+    select, button {
+      width:100%;
+      padding:10px;
+      margin-top:5px;
+      border-radius:5px;
+      border:none;
+    }
+    button {
+      background:#2563eb;
+      color:white;
+      font-weight:bold;
+      margin-top:20px;
+    }
+    .result {
+      margin-top:20px;
+      font-size:18px;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h1>Cotizador Inteligente</h1>
+
+  <label>Servicio</label>
+  <select id="service">
+    <option value="50000">Landing Page</option>
+    <option value="120000">Chatbot</option>
+    <option value="180000">Automatización</option>
+  </select>
+
+  <label>Urgencia</label>
+  <select id="urgency">
+    <option value="1">Normal</option>
+    <option value="1.3">Urgente</option>
+  </select>
+
+  <button onclick="cotizar()">Calcular</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+function cotizar() {
+  const servicio = Number(document.getElementById("service").value);
+  const urgencia = Number(document.getElementById("urgency").value);
+  const total = Math.round(servicio * urgencia);
+
+  document.getElementById("result").innerText =
+    "Valor estimado: $" + total.toLocaleString("es-CL");
+}
+</script>
+
+</body>
+</html>
